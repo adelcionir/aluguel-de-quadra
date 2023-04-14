@@ -1,0 +1,100 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package caixaeletronico;
+
+import java.util.Scanner;
+import cliente.Endereço;
+import cliente.Pessoa;
+import cliente.Fisica;
+import cliente.juridica;
+
+/**
+ *
+ * @author Adelcionir
+ */
+public class CaixaEletronico extends Pessoa{
+    
+    public static Pessoa p[] = new Pessoa[10];
+    public static int ultimo = 0;
+    static int valor;
+    static int valor2;
+    
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scanner tec = new Scanner(System.in);
+        int opcao = 0;
+        
+        while ( opcao!=4){
+            
+            System.out.println(" Digite: ");
+            System.out.println(" 1 - Cadastrar Pessoa Fisica ");
+            System.out.println(" 2 - Cadastrar Pessoa Juridica ");
+            System.out.println(" 3 - Imprimir clientes ");
+            System.out.println(" 4 - Sair ");
+            opcao = tec.nextInt();
+            tec.nextLine();
+            
+            
+            
+            switch (opcao){
+                case 1: p[ultimo] = new Fisica();
+                break;
+                case 2: p[ultimo] = new juridica();
+                break;
+                
+               
+               
+                case 4: System.out.println(" Sair... ");
+                break;
+                default:System.out.println(" Valor invalido... ");
+                break;
+                
+            }
+            
+            if( opcao == 1 || opcao == 2){
+                p[ultimo].cadastrar();
+                ultimo++;
+                
+            }
+            
+            if( opcao ==3){
+                for (int i = 0; i <= ultimo; i++){
+                    p[i].imprime();
+                }
+               
+            }
+            
+        }
+        
+       juridica n = new juridica();
+       n.cadastrar();
+        
+        Fisica f = new Fisica(); 
+        f.cadastrar();
+        Fisica f2 = new Fisica(" Joaquim ");
+        
+        
+        
+        System.out.println(f2.getNomePessoa());
+        
+        juridica j = new juridica();
+        
+              
+        valor = 30;
+        valor2 = 10;
+        
+        System.out.println("o valor é " + valor); 
+        System.out.println("o valor 2 é " + valor2);        
+         
+        System.out.println(" óla mundo ");
+        
+    }
+    
+}
